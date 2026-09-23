@@ -1,1 +1,170 @@
-2007.txt
+$ git branch feature-login
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ git branch
+  feature-login
+* master
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ git switch feature-login
+D       sunidhi
+M       sunidhi.txt
+Switched to branch 'feature-login'
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ echo"this is from feature login">feature.txt
+bash: echothis is from feature login: command not found
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ echo "this is from feature login" >feature.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ ls
+feature.txt  hi.txt  readme.md  sunidhi.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ git status
+On branch feature-login
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   sunidhi.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    sunidhi
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        feature.txt
+
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ git add feature.txt
+warning: in the working copy of 'feature.txt', LF will be replaced by CRLF the next time Git touches it
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ git status
+On branch feature-login
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   feature.txt
+        modified:   sunidhi.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    sunidhi
+
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ git commit
+Aborting commit due to empty commit message.
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ git commit -m " added feature.txt file"
+[feature-login b277315]  added feature.txt file
+ 2 files changed, 2 insertions(+)
+ create mode 100644 feature.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ ls
+feature.txt  hi.txt  readme.md  sunidhi.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ git switch master
+D       sunidhi
+Switched to branch 'master'
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ ls
+hi.txt  readme.md  sunidhi.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ git switch -c bugfix-ui
+Switched to a new branch 'bugfix-ui'
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (bugfix-ui)
+$ echo "this is from bugfix-ui" >bugfix.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (bugfix-ui)
+$ git add bugfix.txt
+warning: in the working copy of 'bugfix.txt', LF will be replaced by CRLF the next time Git touches it
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (bugfix-ui)
+$ git status
+On branch bugfix-ui
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   bugfix.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    sunidhi
+
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (bugfix-ui)
+$ git commit -m "added bugfix.txt file"
+[bugfix-ui ef2b393] added bugfix.txt file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bugfix.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (bugfix-ui)
+$ ls
+bugfix.txt  hi.txt  readme.md  sunidhi.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (bugfix-ui)
+$ git switch feature-login
+D       sunidhi
+Switched to branch 'feature-login'
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ ls
+feature.txt  hi.txt  readme.md  sunidhi.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (feature-login)
+$ git switch master
+D       sunidhi
+Switched to branch 'master'
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ ls
+hi.txt  readme.md  sunidhi.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ git branch
+  bugfix-ui
+  feature-login
+* master
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ git merge -m"merging feature-login branch to main" feature-login
+Updating a9cd68e..b277315
+Fast-forward (no commit created; -m option ignored)
+ feature.txt | 1 +
+ sunidhi.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 feature.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ ls
+feature.txt  hi.txt  readme.md  sunidhi.txt
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ git log --oneline
+b277315 (HEAD -> master, feature-login)  added feature.txt file
+a9cd68e Message
+a1ce0a1 this is my first commit
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$ git log --oneline --all --graph
+* ef2b393 (bugfix-ui) added bugfix.txt file
+| * b277315 (HEAD -> master, feature-login)  added feature.txt file
+|/
+* a9cd68e Message
+* a1ce0a1 this is my first commit
+
+ksitnwsys21@DESKTOP-UDEDPM4 MINGW64 ~/Desktop/1KS25CS141 (master)
+$
+
